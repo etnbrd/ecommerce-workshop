@@ -1,0 +1,14 @@
+#! /bin/bash
+
+echo 'BUILD'
+
+ROOT=$(git rev-parse --show-toplevel)
+
+if [ $(git branch --show-current) == "master" ]; then
+  echo "building master branch"
+  # echo $(pwd)
+  cmd=$(jq -r .steps.deploy "${ROOT}/.fake-ci.json")
+  echo $cmd
+  $cmd
+  # eval $(jq .steps.deploy "${ROOT}/.fake-ci.json")
+fi
