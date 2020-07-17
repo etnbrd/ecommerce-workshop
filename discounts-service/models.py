@@ -40,7 +40,7 @@ class DiscountType(db.Model):
 
 class Discount(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(128))
+    title = db.Column(db.String(128))
     code = db.Column(db.String(64))
     value = db.Column(db.Integer)
     discount_type_id = db.Column(db.Integer, db.ForeignKey('discount_type.id'), nullable=False)
@@ -54,7 +54,7 @@ class Discount(db.Model):
     def serialize(self):
         return {
             'id': self.id,
-            'name': self.name,
+            'title': self.title,
             'code': self.code,
             'value': self.value,
             'discount_type': self.discount_type.serialize()
