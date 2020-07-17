@@ -71,7 +71,7 @@ RUN groupadd dog \
 
 USER dog
 
-COPY --chown=dog:dog Gemfile* .
+COPY --chown=dog:dog Gemfile* ./
 RUN bundle install --without development test
 
 COPY --chown=dog:dog . .
