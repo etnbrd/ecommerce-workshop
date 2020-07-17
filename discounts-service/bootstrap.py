@@ -37,10 +37,10 @@ def initialize_database(app, db):
             discount_type = DiscountType(random.choice(words),
                                          'price * %f' % random.random(),
                                          Influencer(names.get_full_name()))
-            discount_title = random.choice(words)
+            discount_name = random.choice(words)
             for i in range(random.randint(1,3)):
-                discount_title += ' ' + random.choice(words)
-            discount = Discount(discount_title,
+                discount_name += ' ' + random.choice(words)
+            discount = Discount(discount_name,
                                 random.choice(words).upper(),
                                 random.randrange(1,100) * random.random(),
                                 discount_type)
