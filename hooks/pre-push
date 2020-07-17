@@ -1,9 +1,9 @@
 #! /bin/bash
 
-echo 'BUILD'
+echo "Build 👷"
 
 ROOT=$(git rev-parse --show-toplevel)
-BRANCH=${git rev-parse --abbrev-ref HEAD}
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 if [ $BRANCH == "master" ]; then
   echo "building master branch"
