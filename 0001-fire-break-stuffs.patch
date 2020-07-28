@@ -1,0 +1,25 @@
+From c793a966499cc41795de9c9e0e2d2359ac73e878 Mon Sep 17 00:00:00 2001
+From: Etienne Brodu <etienne.brodu@datadoghq.com>
+Date: Tue, 28 Jul 2020 18:28:16 +0200
+Subject: [PATCH] :fire: break stuffs!
+
+---
+ discounts-service/models.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/discounts-service/models.py b/discounts-service/models.py
+index 22ad6d656..ddcc0740c 100644
+--- a/discounts-service/models.py
++++ b/discounts-service/models.py
+@@ -55,7 +55,7 @@ class Discount(db.Model):
+         return {
+             'id': self.id,
+             'name': self.name,
+-            'code': self.code,
++            'coupon': self.code,
+             'value': self.value,
+             'discount_type': self.discount_type.serialize()
+         }
+-- 
+2.26.0
+
