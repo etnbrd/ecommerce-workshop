@@ -3,9 +3,14 @@
 const http = require('https')
 const url = require('url')
 
-const api_key = "b0e51e0a09654e258693098d5a526db3"
-const app_key = "ebfa1f5987b61bf4e4f74ef26da19066611426ee"
-const test_id = 'pdn-sai-txz'
+const api_key = process.env.DD_API_KEY
+const app_key = process.env.DD_APP_KEY
+const test_id = process.env.SYNTHETICS_TEST_ID
+
+if (!test_id) {
+  console.log('synthetics-ci not yet configured')
+  process.exit(0)
+}
 
 main(test_id)
 
