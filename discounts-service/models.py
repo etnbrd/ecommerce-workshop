@@ -55,7 +55,7 @@ class Discount(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'coupon': self.code,
+            'code': self.code,
             'value': self.value,
             'discount_type': self.discount_type.serialize()
         }
