@@ -1,6 +1,6 @@
 {
   "steps": {
-    "deploy": "./scripts/deploy.sh"
-    "test": "./scripts/test.sh",
+    "deploy": "./scripts/deploy.sh",
+    "test": "./scripts/test.sh"
   }
 }
