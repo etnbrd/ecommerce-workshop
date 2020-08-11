@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@datadog/datadog-ci": "^0.5.6"
+  }
+}
