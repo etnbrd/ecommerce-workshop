@@ -1,14 +1,15 @@
 #! /bin/bash
 
-echo "Build 👷"
+echo "=== Fake CI ==="
 
 ROOT=$(git rev-parse --show-toplevel)
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-if [ $BRANCH == "master" ]; then
-  echo "building master branch"
-  cmd=$(jq -r .steps.deploy "${ROOT}/.fake-ci.json")
-  echo $cmd
-  $cmd
-  # eval $(jq .steps.deploy "${ROOT}/.fake-ci.json")
-fi
+echo "--- Deploy ---"
+cmd=$(jq -r .steps.deploy "${ROOT}/.fake-ci.json")
+echo $cmd
+$cmd
+
+echo "--- Test ---"
+cmd=$(jq -r .steps.deploy "${ROOT}/.fake-ci.json")
+echo $cmd
+$cmd
