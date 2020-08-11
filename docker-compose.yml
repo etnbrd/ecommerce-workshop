@@ -99,9 +99,9 @@ services:
       - DD_LOGS_INJECTION=true
       - DD_TRACE_ANALYTICS_ENABLED=true
     image: "discounts-service:canary"
-    command: ddtrace-run flask run --port=5001 --host=0.0.0.0
+    command: ddtrace-run flask run --port=5003 --host=0.0.0.0
     ports:
-      - "5003:5001"
+      - "5003:5003"
     depends_on:
       - agent
       - db
