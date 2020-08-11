@@ -10,6 +10,6 @@ echo $cmd
 $cmd
 
 echo "--- Test ---"
-cmd=$(jq -r .steps.deploy "${ROOT}/.fake-ci.json")
+cmd=$(jq -r .steps.test "${ROOT}/.fake-ci.json")
 echo $cmd
 $cmd
