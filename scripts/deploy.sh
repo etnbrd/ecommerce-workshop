@@ -1,6 +1,15 @@
 #!/bin/bash
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
 # Build the discount-service image if required
-docker build -t discounts-service discounts-service
+
+if [ $BRANCH == "master" ]; then
+  echo "building master branch"
+  docker build -t discounts-service discounts-service
+else
+  docker build -t discounts-service:canary discounts-service
+fi
 
 # Tear down any previous containers
 docker-compose down
@@ -13,5 +22,6 @@ until $(curl --output /dev/null --silent --head --fail http://0.0.0.0:3000); do
     printf '.'
     sleep 5
 done
-echo 'webserver responding, waiting a bit more to be safe'
-sleep 10
+# Waiting a bit more to be safe
+printf '.'
+sleep 5
